@@ -121,7 +121,7 @@ print(tip)
 #xxx[x:y] 从x号元素到y号元素，如果x为空，则从最开始到y；如果y为空，则从x到结尾
 
 #复制列表
-list_ers = miagicians
+list_ers = miagicians[:]
 print(list_ers)
 list_ers = miagicians[1:3]
 print(list_ers)

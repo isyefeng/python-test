@@ -86,6 +86,7 @@ else:
 	print('False')
 
 #in 的用法  判断列表中是否存在某元素
+#not in 用法和in相反，判断某元素是否不再列表中
 inbuf = pisa[:]
 print(inbuf)
 num = '猫王' in inbuf

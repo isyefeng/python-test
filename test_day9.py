@@ -64,6 +64,8 @@ while True:
 print(user)
 
 
+def str_cty(buf1, buf2):
+	return buf1 + ' ' + buf2
 
 
 

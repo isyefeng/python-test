@@ -19,7 +19,7 @@ class Bullet():
 	def update(self):
 		self.y -= self.speed
 		self.rect.y = self.y 
-		#self.rect.y -= self.speed												#子弹向上移动(这种方法不会让子弹消失)
+		#self.rect.y -= self. 												#子弹向上移动(这种方法不会让子弹消失)
 		
 	def draw_bullet(self):
 		pygame.draw.rect(self.screen, self.color, self.rect)					#重画子弹

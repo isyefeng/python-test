@@ -1,11 +1,12 @@
 """event mode"""
 import pygame
+import sys
 from bullet import Bullet					
 
 def event_space(bullets, setting, ship, screen):			
 	if len(bullets) <= setting.bullet_max:					#限制子弹数量
 		new_bullet = Bullet(setting, screen, ship)			#实例化一个子弹类
-		bullets.add_internal(new_bullet)					#将这个子弹类添加到编组中，每个元素都是一个精灵
+		bullets.add(new_bullet)					#将这个子弹类添加到编组中，每个元素都是一个精灵
 
 def key_down_event(event, ship, screen, setting, bullets):
 	if event.key == pygame.K_RIGHT:

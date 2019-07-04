@@ -40,8 +40,9 @@ class Ship():
 		if self.down_flag and self.rect.bottom < self.screen_rect.bottom:
 			self.rect.centery += self.set.screen_speed
 
-
-
+	def center_ship(self):
+		self.rect.centerx = self.screen_rect.centerx
+		self.rect.bottom = self.screen_rect.bottom
 
 
 

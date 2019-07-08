@@ -1,5 +1,6 @@
 """Ship class"""
 import pygame
+from pygame.sprite import Sprite
 
 #屏幕坐标是这样分的
 #(0,0) -------->
@@ -8,8 +9,9 @@ import pygame
 #	  v		 (max,max)
 #
 
-class Ship():
+class Ship(Sprite):
 	def __init__(self, screen, setting):
+		super().__init__()
 		self.screen = screen
 		self.image = pygame.image.load('images/ship.bmp')
 		self.rect = self.image.get_rect()
@@ -43,6 +45,8 @@ class Ship():
 	def center_ship(self):
 		self.rect.centerx = self.screen_rect.centerx
 		self.rect.bottom = self.screen_rect.bottom
+
+		
 
 
 

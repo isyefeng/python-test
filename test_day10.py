@@ -150,4 +150,4 @@ cat2 = buy_cat('bans','AMG',lg='hkq',wy='hws')
 print(cat1)
 print(cat2)
 
-
+#print(test_day9.str_cty('ye','feng'))

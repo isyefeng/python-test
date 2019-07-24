@@ -1,0 +1,5 @@
+At now,I study python 20day.
+In python you can print the string
+In python you can save the file
+In python you can read the file
+In pyrhon you can write the file

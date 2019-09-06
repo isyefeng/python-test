@@ -17,7 +17,7 @@ dates,highs,low = [],[],[]
 with open(file_neme) as csv_f:
 	csv_file = csv.reader(csv_f)
 	list = next(csv_file)
-	
+
 	for row in csv_file:
 		try:
 			high_date = int(row[1])
@@ -50,6 +50,7 @@ with open(sitka) as csv_f:
 		
 		
 fig = plt.figure(dpi=128,figsize=(10,6))
+print(highs)
 plt.plot(dates, highs, c='red', alpha=0.5)								#alpha:透明度
 plt.plot(dates1, highs1, c='blue', alpha=0.5)								#alpha:透明度
 

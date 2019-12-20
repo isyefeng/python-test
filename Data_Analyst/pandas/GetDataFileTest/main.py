@@ -33,6 +33,19 @@ print(df.info()) #显示信息
 print(df.describe()) #求均值、分布、最大、最小.....
 print(df)
 
+print('--------------------------------------------')
+'''缺失值处理'''
+df = pd.read_csv('null.csv')
+print(df.info())  #info 可以查看到某一列有多少个非缺失（非空）的值
+print(df.isnull())  #isnull 如果是缺失值返回True 否则返回 False
+print(df.dropna()) #删除有空值的那一行数据
+print(df.dropna(how='all')) #how = 'all' 当整行缺失时才删除
+#缺失值的填充
+print(df.fillna(0)) #使用fillna()方法填充，这里表示全填充0
+print(df.fillna({'性别':'女','年龄':18}))
 
-
-
+#删除重复行
+print(df.drop_duplicates()) #默认不填参数是一模一样时保留第一个
+print(df.drop_duplicates(subset = '年龄')) #指定列
+print(df.drop_duplicates(subset = ['年龄','性别'])
+#print(df.drop_duplicates(subset = ['年龄','性别'], keep(last)) '''keep 是保留哪一个相同项，first是保留第一个，last是保留最后一个，F alse删除全部'''

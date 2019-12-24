@@ -1,5 +1,6 @@
 from numpy import *
 import operator
+from plt_wave import *
 
 '''创建K临近算法的原始数据'''
 def creatDataSet():
@@ -29,11 +30,11 @@ def classify0( inX, dataset, lables, k ):
 	sqDiffMat = diffMat**2											#矩阵平方运算(xA-xB)^2
 	print(sqDiffMat)
 	print('--------------')
-	sqDistances = sqDiffMat.sum(axis=1)								#
+	sqDistances = sqDiffMat.sum(axis=1)								#行求和
 	print(sqDistances)
 	print('--------------')
-	distamces = sqDistances**0.5
-	print(distamces)
+	distamces = sqDistances**0.5                                    #开方
+	print(distamces) 
 	print('--------------')
 
 	sorteDistIndicies = distamces.argsort()							#argsort() 返回数组值从小到大的索引 
@@ -48,8 +49,58 @@ def classify0( inX, dataset, lables, k ):
 	sortedClassCount = sorted(classCount.items(), key=lambda x:x[1],reverse=True)	#
 	print(sortedClassCount)
 	return sortedClassCount[0][0] #返回最多个点的数类型
-	
+    
+ 
+'''
+    将数据文件转换成矩阵数据
+'''
+def file2matrix( filename ):
+    fr = open(filename)                             #读取文件
+    arrayOLines = fr.readlines()                    #按行获取信息
+    numberfrOLinex = len(arrayOLines)               #行数
+    returnMat = zeros((numberfrOLinex,3))           #以0位参数创建一个矩阵
+    classLabelVector = []
+    index = 0
+    for line in arrayOLines:
+        line.strip()                                # strip(x)方法 删除字符串头尾的x值（x默认为字符串或空格）
+        listFromLine = line.split('\t')             # split(x)方法 字符串按x来切片 比如 'xabxscxwfxsdx'.split('x')  ====> ['ab','sc','wf'...]
+        returnMat[index,:] = listFromLine[0:3]      # 给矩阵赋值
+        classLabelVector.append(int(listFromLine[-1]))  #获取分类
+        index = index + 1
+    return returnMat, classLabelVector
 
 a,b = creatDataSet()
 print('属于'+classify0([0.7,0.5], a, b, 3)+'类')
+
+array,classvector = file2matrix('datingTestSet2.txt')
+DisplayWave(array[:,1],array[:,2])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
